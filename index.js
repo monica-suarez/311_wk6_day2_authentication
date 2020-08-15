@@ -5,7 +5,11 @@ const usersRouter = require('./routers/users');
 const authRouter = require('./routers/auth');
 
 const app = express();
+const logger = require("./middleware").logger;
 const port = process.env.PORT || 4001;
+
+
+app.use(logger)
 
 app.use(bodyParser.json())
 app.use('/users', usersRouter)
